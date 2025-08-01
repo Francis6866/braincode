@@ -1,0 +1,85 @@
+.hero{
+    width: 500px;
+    min-width: 300px;
+    max-width: 600px;
+    /* background: white; */
+    /* color: #151C33; */
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 3px 3px 2px 5px #151C33;
+    background: linear-gradient(to right, #151C33, #1e2a55);
+    color: #f0f0f0;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #00d4ff;
+    text-shadow: 2px 2px 10px rgba(0, 212, 255, 0.3);
+  }
+  
+  .hero-title span {
+    color: #ff6bcb;
+    text-shadow: 2px 2px 10px rgba(255, 107, 203, 0.3);
+  }
+  
+  .hero-tagline {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .hero-tagline span {
+    display: block;
+    font-size: 1rem;
+    color: #ccc;
+    margin-top: 10px;
+  }
+
+  .hero-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  .btn-login {
+    background-color: #00d4ff;
+    color: #151C33;
+    border-color: #00d4ff;
+  }
+  
+  .btn-login:hover {
+    background-color: transparent;
+    color: #00d4ff;
+    border-color: #00d4ff;
+  }
+  
+  .btn-register {
+    background-color: #ff6bcb;
+    color: #151C33;
+    border-color: #ff6bcb;
+  }
+  
+  .btn-register:hover {
+    background-color: transparent;
+    color: #ff6bcb;
+    border-color: #ff6bcb;
+  }  

@@ -1,0 +1,15 @@
+.header{
+    background: #151C33;
+    color: white;
+}
+
+.header__container{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.header__brand a{
+    color: white;
+    text-decoration: none;
+}
