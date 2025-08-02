@@ -12,10 +12,11 @@
     <header class="header">
         <div class="header__container">
             <!-- brand -->
-            <div class="header__brand"><h2><a href="">BrainCode</a></h2></div>
+            <div class="header__brand"><h2><a href="./index.html">BrainCode</a></h2></div>
             <div class="header__meta" id="header__meta"></div>
         </div>
     </header>
+
     <main class="main">
         <div class="main__overlay">
 
@@ -28,12 +29,45 @@
                 </div>
 
                 <div class="hero-buttons">
-                    <a href="/login.html" class="btn btn-login">Login</a>
-                    <a href="/register.html" class="btn btn-register">Register</a>
+                    <button class="btn btn-login" id="loginModalOp" >Login</button>
+                    <button class="btn btn-register" id="registerModalOp">Register</button>
                 </div>
             </section>
+              
+              <!-- Login Modal -->
+              <div class="modal" id="loginModal">
+                <div class="modal-content">
+                  <span class="close" id="loginModalClose" >&times;</span>
+                  <h2>Login</h2>
+                  <form id='loginForm'>
+                    <input type="email" placeholder="Email" id='loginEmail' required />
+                    <input type="password" placeholder="Password" id='loginPassword' required />
+                    <button type="submit" id='loginBtn'  class="btn btn-login">Login</button>
+                  </form>
+                  <p id="loginSuccess" style="margin-top: 10px;"></p>
+                </div>
+              </div>
+              
+              <!-- Register Modal -->
+              <div class="modal" id="registerModal">
+                <div class="modal-content">
+                  <span class="close" id="registerModalClose" >&times;</span>
+                  <h2>Register</h2>
+                  <form id='registerForm'>
+                    <input type="text" id='registerName' placeholder="Full Name" id='fullName' required />
+                    <input type="email" id='registerEmail' placeholder="Email" id='email' required />
+                    <input type="password" id='registerPassword' placeholder="Password" id='password' required />
+                    <button type="submit" id='registerBtn' class="btn btn-register">Register</button>
+                  </form>
+                  <p id="success" style="margin-top: 10px;"></p>
+                </div>
+              </div>
+              
             <!-- overlay -->
         </div>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./js/index.js" type="module" defer></script>
 </body>
 </html>
