@@ -114,6 +114,14 @@ loginFormEL.addEventListener('submit', async (e) => {
 
     loginEmailEl.value = ''
     loginPasswordEl.value = ''
+
+    // Store user's full name and email in localStorage
+    localStorage.setItem('braincodeUser', JSON.stringify({
+        full_name: data[0].full_name,
+        email: data[0].email
+        }));
+
+
     document.getElementById('loginSuccess').textContent = `Welcome back (${data[0].full_name.split(' ')[0]})`
 
     setTimeout(() => {

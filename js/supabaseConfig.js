@@ -1,1 +1,0 @@
-export const supabase = supabase.createClient('https://vjcmduatoxxehehjhocp.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZqY21kdWF0b3h4ZWhlaGpob2NwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxNDQ3NzgsImV4cCI6MjA2MjcyMDc3OH0.3_C6bBUZp8CUCRNLiKxIh6EG5mnWdUNV0GDEv9K45DE')

@@ -16,9 +16,9 @@ main{
 
 .quiz_container{
     border: 1px solid black;
-    display: flex;
+    /* display: flex; */
     width: 65%;
-    height: calc(100vh - 57px);
+    /* height: calc(100vh - 57px); */
 }
 
 .start_quiz {
@@ -26,10 +26,64 @@ main{
     height: 300px;
     border-radius: 50%;
     background: #151C33;
-    margin: auto auto;
+    margin: 50px auto;
     display: flex;
     justify-content: center;
     align-items: center;
     color: aliceblue;
     border: 10px solid #2753e2;
+}
+
+.question_container{
+    width: 400px;
+    height: 500px;
+    margin: 30px auto;
+    /* border: 1px solid black; */
+}
+
+.questions{
+    width: 400px;
+    height: 400px;
+    /* margin: 50px auto; */
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.358);
+}
+
+.question_count{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #2753e2;
+}
+
+.count_btn{
+    border: 0;
+    outline: 0;
+    background: none;
+    color: red;
+    cursor: pointer;
+}
+
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn{
+    border: 0;
+    outline: 0;
+    background: #2753e2;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover{
+    background: #151C33;
 }

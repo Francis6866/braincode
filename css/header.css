@@ -4,12 +4,29 @@
 }
 
 .header__container{
-    padding: 10px;
+    padding: 20px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
 .header__brand a{
     color: white;
     text-decoration: none;
+}
+
+.header__meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#logoutBtn{
+    border: 0;
+    outline: 0;
+    background: none;
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
 }

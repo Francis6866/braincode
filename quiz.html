@@ -13,21 +13,46 @@
         <div class="header__container">
             <!-- brand -->
             <div class="header__brand"><h2><a href="./index.html">BrainCode</a></h2></div>
-            <div class="header__meta" id="header__meta"></div>
+            <div class="header__meta" id="header__meta">
+                <p id="welcomeText">Hi francis</p>
+                <button id="logoutBtn">Logout</button>
+            </div>
         </div>
     </header>
     <main>
         <div class="carousel_container">
             <img src="./images/braincode-home.jpeg" alt="">
         </div>
+
         <div class="quiz_container">
             <!-- button to start quiz -->
             <div class="start_quiz">
                 <p>START QUIZ</p>
             </div>
 
-            <div class="questions"></div>
+            <div class="question_container"  style="display: none;">
+                <div class="questions">
+                    <!-- question count -->
+                    <div class="question_count">
+                        <p class="count">Question: 1/50</p>
+                        <button class="count_btn quit">Quit</button>
+                    </div>
+                </div>
+
+                <!-- buttons -->
+                <div class="buttons">
+                    <button type="button" class="btn btn_previous">Previous</button>
+                    <button type="button" class="btn btn_next">Next</button>
+                    <button type="button" class="btn btn_submit" style="display: none;">Submit</button>
+                </div>
+            </div>
+
+            <div class="result" style="display: none;">
+                <h1>hello</h1>
+            </div>
         </div>
     </main>
+
+    <script src="./js/quiz.js"></script>
 </body>
 </html>
