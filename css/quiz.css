@@ -66,6 +66,55 @@ main{
     cursor: pointer;
 }
 
+.questions h3 {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.questions ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.questions li {
+    margin-bottom: 10px;
+}
+
+.questions input[type="radio"] {
+    display: none;
+}
+
+.questions label {
+    display: block;
+    padding: 10px;
+    border: 2px solid #2753e2;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-size: 1rem;
+    user-select: none;
+}
+
+.questions label:hover {
+    background: #e8f0ff;
+}
+
+/* ✅ correct/incorrect selections */
+.label-correct {
+    background-color: #d4edda !important;
+    border-color: #28a745 !important;
+    color: #155724;
+}
+
+.label-incorrect {
+    background-color: #f8d7da !important;
+    border-color: #dc3545 !important;
+    color: #721c24;
+}
+
+
 .buttons{
     display: flex;
     justify-content: flex-end;
