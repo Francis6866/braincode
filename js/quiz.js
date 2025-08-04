@@ -6,6 +6,7 @@ const questionCountEl = document.querySelector('.count');
 const previousBtn = document.querySelector('.btn_previous');
 const nextBtn = document.querySelector('.btn_next');
 const submitBtn = document.querySelector('.btn_submit');
+import { ques } from "./questions.js";
 
 // Get and greet user
 const user = JSON.parse(localStorage.getItem('braincodeUser'));
@@ -22,25 +23,10 @@ logoutBtn.addEventListener('click', () => {
   window.location.href = 'index.html';
 });
 
-// Sample quiz questions (you’ll replace with 50 later)
-const questions = [
-  {
-    question: "What does `typeof null` return?",
-    options: ["'object'", "'null'", "'undefined'", "'number'"],
-    answer: "'object'"
-  },
-  {
-    question: "Which method is used to parse a JSON string?",
-    options: ["JSON.stringify()", "JSON.parse()", "JSON.toString()", "parse.JSON()"],
-    answer: "JSON.parse()"
-  },
-  {
-    question: "What keyword is used to declare variables in ES6?",
-    options: ["var", "int", "let", "define"],
-    answer: "let"
-  }
-  // Add more here or load from Supabase later
-];
+// quiz questions sorted everytime it loads
+const questions = ques.sort(() => Math.random() - 0.5).slice(0, 50);
+
+// console.log(questions)
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -171,8 +157,7 @@ function checkAnswer() {
     // const selectedLabel = selected.nextElementSibling;
     const selectedLabel = document.querySelector(`label[for="${selected.id}"]`);
     const isCorrect = selected.value === correctAnswer;
-  console.log(selectedLabel)
-  console.log(selected)
+ 
     if (isCorrect) {
       score++;
       selectedLabel.classList.add('label-correct');
