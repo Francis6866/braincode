@@ -45,7 +45,7 @@ const questions = [
 let currentQuestionIndex = 0;
 let score = 0;
 let hasAnswered = false;
-const badges = ['bronse1.jpeg', 'silver1.jpeg', 'gold1.jpeg']
+const badges = ['bronze1.jpeg', 'silver1.jpeg', 'gold1.jpeg']
 
 // Start quiz
 startQuiz.addEventListener('click', () => {
@@ -108,39 +108,48 @@ nextBtn.addEventListener('click', () => {
   submitBtn.addEventListener('click', () => {
     checkAnswer();
     questionContainer.style.display = 'none';
-    resultContainer.style.display = 'block';
-
-    // check score and display result
-    if(score <= Math.floor(50/4)){
-        resultContainer.innerHTML = `
-      <h1>Your Score: ${score}/${questions.length}</h1>
-      <p>You scored within the 4th percentile and there'll be no badge for you</p>
-      <p>Try harder next time</p>
-      <button onclick="location.reload()">Restart Quiz</button>
-    `
-    }else if(score <= Math.floor(50/3)){
-        resultContainer.innerHTML = `
-        <h1>Your Score: ${score}/${questions.length}</h1>
-        <p>You scored within the 3rd percentile and Earned yourself a JavaScript Newbie badge</p>
-        <img src=../images/${badges[0]} class='newbie'>
-        <button onclick="location.reload()">Restart Quiz</button>
-      `
-    }else if(score <= Math.floor(50/2)){
-        resultContainer.innerHTML = `
-        <h1>Your Score: ${score}/${questions.length}</h1>
-        <p>You scored within the 2nd percentile and Earned yourself a JavaScript Intermediate badge</p>
-        <img src='../images/${badges[1]}' class='inter'>
-        <button onclick="location.reload()">Restart Quiz</button>
-      `
-    }else {
-        resultContainer.innerHTML = `
-        <h1>Your Score: ${score}/${questions.length}</h1>
-        <p>You scored within the 1st percentile and Earned yourself a JavaScript Master badge</p>
-        <img src='../images/${badges[2]}' class='master'>
-        <button onclick="location.reload()">Restart Quiz</button>
-      `
+    resultContainer.style.display = 'flex';
+  
+    const total = questions.length;
+    const percent = (score / total) * 100;
+  
+    let message = '';
+    let badgeImage = '';
+    let badgeClass = '';
+  
+    if (percent < 25) {
+      message = `
+        <p>You scored within the 4th percentile and there'll be no badge for you.</p>
+        <p>Try harder next time.</p>
+      `;
+    } else if (percent < 40) {
+      message = `
+        <p>You scored within the 3rd percentile and earned yourself a <strong>JavaScript Newbie</strong> badge.</p>
+      `;
+      badgeImage = badges[0]; // bronze
+      badgeClass = 'newbie';
+    } else if (percent < 65) {
+      message = `
+        <p>You scored within the 2nd percentile and earned yourself a <strong>JavaScript Intermediate</strong> badge.</p>
+      `;
+      badgeImage = badges[1]; // silver
+      badgeClass = 'inter';
+    } else {
+      message = `
+        <p>You scored within the 1st percentile and earned yourself a <strong>JavaScript Master</strong> badge.</p>
+      `;
+      badgeImage = badges[2]; // gold
+      badgeClass = 'master';
     }
+  
+    resultContainer.innerHTML = `
+      <h1>Your Score: ${score}/${total}</h1>
+      ${message}
+      ${badgeImage ? `<img src="../images/${badgeImage}" class="${badgeClass}" alt="Badge">` : ''}
+      <button onclick="location.reload()" class='restart_btn' >Restart Quiz</button>
+    `;
   });
+  
   
 
 

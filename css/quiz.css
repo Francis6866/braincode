@@ -34,7 +34,8 @@ main{
     border: 10px solid #2753e2;
 }
 
-.question_container{
+.question_container,
+.result{
     width: 400px;
     height: 500px;
     margin: 30px auto;
@@ -122,7 +123,8 @@ main{
     margin-top: 10px;
 }
 
-.btn{
+.btn,
+.restart_btn{
     border: 0;
     outline: 0;
     background: #2753e2;
@@ -135,4 +137,13 @@ main{
 
 .btn:hover{
     background: #151C33;
+}
+
+/* result */
+.result{
+    /* display: flex; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
