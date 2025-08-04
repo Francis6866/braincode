@@ -44,6 +44,8 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let score = 0;
+let hasAnswered = false;
+const badges = ['bronse1.jpeg', 'silver1.jpeg', 'gold1.jpeg']
 
 // Start quiz
 startQuiz.addEventListener('click', () => {
@@ -55,6 +57,8 @@ startQuiz.addEventListener('click', () => {
 
 // Load current question
 function loadQuestion() {
+    hasAnswered = false; // Reset per new question
+
     const questionData = questions[currentQuestionIndex];
     const questionsDiv = document.querySelector(".questions");
     questionsDiv.innerHTML = `
@@ -102,19 +106,48 @@ nextBtn.addEventListener('click', () => {
   
   // ✅ Submit
   submitBtn.addEventListener('click', () => {
-    // checkAnswer();
+    checkAnswer();
     questionContainer.style.display = 'none';
     resultContainer.style.display = 'block';
-    resultContainer.innerHTML = `
+
+    // check score and display result
+    if(score <= Math.floor(50/4)){
+        resultContainer.innerHTML = `
       <h1>Your Score: ${score}/${questions.length}</h1>
+      <p>You scored within the 4th percentile and there'll be no badge for you</p>
+      <p>Try harder next time</p>
       <button onclick="location.reload()">Restart Quiz</button>
-    `;
+    `
+    }else if(score <= Math.floor(50/3)){
+        resultContainer.innerHTML = `
+        <h1>Your Score: ${score}/${questions.length}</h1>
+        <p>You scored within the 3rd percentile and Earned yourself a JavaScript Newbie badge</p>
+        <img src=../images/${badges[0]} class='newbie'>
+        <button onclick="location.reload()">Restart Quiz</button>
+      `
+    }else if(score <= Math.floor(50/2)){
+        resultContainer.innerHTML = `
+        <h1>Your Score: ${score}/${questions.length}</h1>
+        <p>You scored within the 2nd percentile and Earned yourself a JavaScript Intermediate badge</p>
+        <img src='../images/${badges[1]}' class='inter'>
+        <button onclick="location.reload()">Restart Quiz</button>
+      `
+    }else {
+        resultContainer.innerHTML = `
+        <h1>Your Score: ${score}/${questions.length}</h1>
+        <p>You scored within the 1st percentile and Earned yourself a JavaScript Master badge</p>
+        <img src='../images/${badges[2]}' class='master'>
+        <button onclick="location.reload()">Restart Quiz</button>
+      `
+    }
   });
   
 
 
 // Check selected answer
 function checkAnswer() {
+    if (hasAnswered) return; // Don't allow re-checking
+
     const selected = document.querySelector('input[name="option"]:checked');
   
     if (!selected) return;
@@ -151,6 +184,9 @@ function checkAnswer() {
         }
       });
     }
+
+    // Lock future changes to score for this question
+    hasAnswered = true;
   
     // disable further selection
     document.querySelectorAll('input[name="option"]').forEach(input => {
