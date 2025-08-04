@@ -3,7 +3,7 @@ main{
 }
 
 .carousel_container{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     width: 35%;
     height: calc(100vh - 57px);
@@ -15,7 +15,7 @@ main{
 }
 
 .quiz_container{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* display: flex; */
     width: 65%;
     /* height: calc(100vh - 57px); */
