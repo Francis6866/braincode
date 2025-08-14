@@ -31,6 +31,9 @@ const questions = ques.sort(() => Math.random() - 0.5).slice(0, 50);
 let currentQuestionIndex = 0;
 let score = 0;
 let hasAnswered = false;
+let timePerQuestion = 24; // seconds
+let timer;
+let timeLeft = timePerQuestion;
 const badges = ['bronze1.jpeg', 'silver1.jpeg', 'gold1.jpeg']
 
 // Start quiz
@@ -50,6 +53,7 @@ function loadQuestion() {
     questionsDiv.innerHTML = `
       <div class="question_count">
         <p class="count">Question: ${currentQuestionIndex + 1}/${questions.length}</p>
+        <p class="timer">Time Left: <span id="time">${timePerQuestion}</span>s</p>
         <button class="count_btn quit" onclick="location.reload()">Quit</button>
       </div>
       <h3>${questionData.question}</h3>
@@ -74,20 +78,42 @@ function loadQuestion() {
       input.addEventListener('change', checkAnswer);
 
     });
+
+    startTimer()
   }
+
+function startTimer() {
+    clearInterval(timer); // stop any existing timer
+    timeLeft = timePerQuestion;
+    document.getElementById("time").textContent = timeLeft;
+
+    timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById("time").textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            goToNextQuestion(); // auto-skip
+        }
+    }, 1000);
+}
 
 
 // Next
-nextBtn.addEventListener('click', () => {
+function goToNextQuestion(){
     checkAnswer();
     currentQuestionIndex++;
     loadQuestion();
-  });
+    startTimer()
+}
+
+nextBtn.addEventListener('click', goToNextQuestion);
   
   // ⏮️ Previous
   previousBtn.addEventListener('click', () => {
     currentQuestionIndex--;
     loadQuestion();
+    startTimer()
   });
   
   // ✅ Submit

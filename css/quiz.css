@@ -59,6 +59,12 @@ main{
     color: #2753e2;
 }
 
+.timer {
+    /* color: #ff0000; */
+    text-align: right;
+    font-weight: bold;
+}
+
 .count_btn{
     border: 0;
     outline: 0;
